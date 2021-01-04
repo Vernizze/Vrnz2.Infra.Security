@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vrnz2.Infra.Security", "Vrnz2.Infra.Security\Vrnz2.Infra.Security.csproj", "{2BB9700A-0149-41FC-9746-326CC491D321}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vrnz2.Infra.Security.Test", "Vrnz2.Infra.Security.Test\Vrnz2.Infra.Security.Test.csproj", "{F7B2A3D8-86C0-4D3B-A30C-D616C00CDD86}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2BB9700A-0149-41FC-9746-326CC491D321}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB9700A-0149-41FC-9746-326CC491D321}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB9700A-0149-41FC-9746-326CC491D321}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB9700A-0149-41FC-9746-326CC491D321}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7B2A3D8-86C0-4D3B-A30C-D616C00CDD86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7B2A3D8-86C0-4D3B-A30C-D616C00CDD86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7B2A3D8-86C0-4D3B-A30C-D616C00CDD86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7B2A3D8-86C0-4D3B-A30C-D616C00CDD86}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {337030BA-4433-4A22-AE71-2D9EE62EC6A5}
+	EndGlobalSection
+EndGlobal
