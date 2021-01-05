@@ -45,7 +45,14 @@ namespace Vrnz2.Infra.Security.Libraries
         {
             if (string.IsNullOrEmpty(textToHash)) throw new InvalidOperationException("PlainText cannot be empty");
 
-            return CalculateHash(textToHash, GenerateSalt());
+            return Compute(textToHash, GenerateSalt());
+        }
+
+        public static string Compute(string textToHash, string salt)
+        {
+            if (string.IsNullOrEmpty(textToHash)) throw new InvalidOperationException("PlainText cannot be empty");
+
+            return CalculateHash(textToHash, salt);
         }
 
         /// <summary>
@@ -55,7 +62,7 @@ namespace Vrnz2.Infra.Security.Libraries
         /// the generated salt
         /// </returns>
         /// <exception cref="System.InvalidOperationException"></exception>
-        private static string GenerateSalt()
+        public static string GenerateSalt()
         {
             var result = string.Empty;
 

@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Text.RegularExpressions;
 using Vrnz2.Infra.CrossCutting.Extensions;
 using Vrnz2.Infra.Security.Libraries;
@@ -11,13 +14,19 @@ namespace Vrnz2.Infra.Security.Types
 
         private const string SPECIAL_CHARS = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,";
 
-        #endregion 
+        #endregion
+
+        #region Variables
+
+        private readonly SecureString _secureString;
+
+        #endregion
 
         #region Atributes
 
         public readonly bool IsValid { get; }
 
-        public readonly string Value { get; }
+        public string Value { get; private set; }
 
         #endregion
 
@@ -28,8 +37,15 @@ namespace Vrnz2.Infra.Security.Types
         {
             this.IsValid = Valid(value);
 
-            if (this.IsValid)
-                this.Value = PBKDF2.Compute(value);
+            if (this.IsValid) 
+            {
+                using (var secureString = new SecureString())
+                {
+                    value.ToCharArray().ToList().ForEach(c => secureString.AppendChar(c));
+
+                    _secureString = secureString.Copy();
+                }
+            }
         }
 
         #endregion
@@ -43,10 +59,6 @@ namespace Vrnz2.Infra.Security.Types
 
         #region Methods
 
-        #endregion
-
-        #region Static methods
-
         public static bool Valid(string value)
             =>
                 !string.IsNullOrEmpty(value) &&                                                 //Not Null or Empty
@@ -56,6 +68,14 @@ namespace Vrnz2.Infra.Security.Types
                 new Regex(@".{8,}").IsMatch(value) &&                                           //Must have eight characters 
                 !(new Regex(@" ").IsMatch(value));                                              //Don't have white spaces
 
-        #endregion        
+        public string GetHash(string salt) 
+        {
+            if (_secureString.IsNotNull() && !string.IsNullOrEmpty(salt))
+                Value = PBKDF2.Compute(Marshal.PtrToStringUni(Marshal.SecureStringToBSTR(_secureString)), salt);
+
+            return Value;
+        }
+
+        #endregion       
     }
 }
