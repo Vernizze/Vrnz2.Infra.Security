@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Vrnz2.Infra.Crosscutting" Version="1.0.17" />
+    <PackageReference Include="Vrnz2.Infra.AsymmetricKeyHelper" Version="1.0.2" />
+    <PackageReference Include="Vrnz2.Infra.Crosscutting" Version="1.0.20" />
   </ItemGroup>
 
 </Project>
