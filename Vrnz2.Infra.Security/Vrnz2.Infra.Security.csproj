@@ -3,12 +3,18 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Vrnz2.Infra.AsymmetricKeyHelper" Version="1.0.2" />
-    <PackageReference Include="Vrnz2.Infra.Crosscutting" Version="1.0.20" />
+    <Compile Remove="Libraries\JwtToken.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.11.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.11.1" />
+    <PackageReference Include="Vrnz2.Infra.AsymmetricKeyHelper" Version="1.0.3" />
+    <PackageReference Include="Vrnz2.Infra.Crosscutting" Version="1.0.27" />
   </ItemGroup>
 
 </Project>
